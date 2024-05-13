@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Business Valuation Calculator</title>
+</head>
+<body>
+    <form action="/" method="post">
+        Risk Level:
+        <select name="risk_level">
+            <option value="Much lower">Much lower</option>
+            <option value="Lower">Lower</option>
+            <option value="About average" selected>About average</option>
+            <option value="Higher">Higher</option>
+            <option value="Much higher">Much higher</option>
+        </select><br>
+        Growth Prospects:
+        <select name="growth_prospects">
+            <option value="Declining">Declining</option>
+            <option value="Stable, low growth">Stable, low growth</option>
+            <option value="Moderate growth" selected>Moderate growth</option>
+            <option value="High growth">High growth</option>
+            <option value="Very high growth">Very high growth</option>
+        </select><br>
+        Market Stability:
+        <select name="market_stability">
+            <option value="Highly unstable">Highly unstable</option>
+            <option value="Somewhat unstable">Somewhat unstable</option>
+            <option value="Moderate stability">Moderate stability</option>
+            <option value="Stable" selected>Stable</option>
+            <option value="Very stable">Very stable</option>
+        </select><br>
+        Technological Change:
+        <select name="tech_change">
+            <option value="Very rapidly">Very rapidly</option>
+            <option value="Rapidly">Rapidly</option>
+            <option value="Moderately" selected>Moderately</option>
+            <option value="Slowly">Slowly</option>
+            <option value="Very slowly">Very slowly</option>
+        </select><br>
+        Cash Flows (comma-separated):
+        <input type="text" name="cash_flows" value="200000,600000,1000000,1200000,1500000"><br>
+        <input type="submit" value="Calculate">
+    </form>
+
+    {% if wacc %}
+    <h3>Results:</h3>
+    WACC: {{ wacc }}%<br>
+    PGR: {{ pgr }}%<br>
+    Present Value of Each Cash Flow: {{ pv_cash_flows }}<br>
+    Discounted Cash Flow value: {{ total_dcf_value }}<br>
+    {% endif %}
+</body>
+</html>
